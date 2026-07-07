@@ -9,4 +9,5 @@ course = Course("PY101", "Python Programming", [
     "S001", "S002"], ["QuizObject", "ExamObject", "ProjectObject"])
 course.add_student("S003")
 course.add_assessments("Quiz")
+course.find_assessment("Quiz")
 course.display_info()
