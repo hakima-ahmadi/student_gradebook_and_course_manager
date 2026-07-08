@@ -4,6 +4,7 @@ from assessment import Assessment
 from quiz import Quiz
 from exam import Exam
 from project import Project
+from gradebook import Gradebook
 
 student = Student("001", "Zahra Ahmadi", "zahra@example.com", ["PY101", "MATH101"])
 student.enroll_courses("HTML101")
@@ -31,3 +32,35 @@ exam.grade_message(30)
 project = Project("Project 1", 20)
 project.display_info()
 project.grade_message(20)
+
+
+gradebook = Gradebook(
+    {
+        "S001": Student("S001", "Ali", "ali@gmail.com", [])
+    },
+    {
+        "PY101": Course("PY101", "Python Programming", [], [])
+    },
+    {
+        "S001": {
+            "PY101": {
+                "Quiz 1": 85,
+                "Midterm Exam": 78,
+                "Final Project": 92,
+            }
+        }
+    },
+    60
+)
+gradebook.add_student(Student("S004", "Elham", "elham@gmail.com", []))
+gradebook.add_course(Course("PY101", "Python Programming", [], []))
+gradebook.enroll_student("S001", "CSS101")
+gradebook.search_student("Elham")
+gradebook.get_result(55)
+
+print(f"Students Dictionary:{gradebook.students}")
+print(f"Courses Dictionary: {gradebook.courses}")
+print(f"Grades Dictionary: {gradebook.grades} ")
+
+
+
