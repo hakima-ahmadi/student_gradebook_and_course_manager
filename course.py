@@ -31,7 +31,7 @@ class Course:
     def find_assessment(self, title):
         for assessment in self.assessments:
             if assessment == title:
-                print(f"{title} assessment found.")
+                return assessment
 
     def display_info(self):
         print(f"Course code: {self.__course_code}")
