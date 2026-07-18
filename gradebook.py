@@ -53,10 +53,21 @@ class Gradebook:
         print(f"{assessment} added to the course {course_code}")
 
     def record_grade(self, student_id, course_code, assessment_title, score):
-        pass
+        if student_id not in self.students:
+            print("Student not found.")
+            return
+        if course_code not in self.courses:
+            print("Course not found.")
+            return
+        assessment = self.courses[course_code].find_assessment(assessment_title)
+        if assessment is None:
+            print("Assessment not found")
+            return
+        print(f"Student {student_id} gets {score} in {assessment_title} for course {course_code}.")
 
     def calculate_average(self, student_id, course_code):
-        pass
+        scores = self.grades[student_id][course_code].values()
+        print(sum(scores) / len(scores))
 
     def show_report(self, student_id):
         pass
