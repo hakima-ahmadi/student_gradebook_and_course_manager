@@ -1,4 +1,3 @@
-
 class Gradebook:
 
     def __init__(self, students, courses, grades, passing_grade):
@@ -45,7 +44,13 @@ class Gradebook:
         print(f"Student {student_id} is enrolled in course {course_code} successfully.")
 
     def add_assessment(self, course_code, assessment):
-        pass
+        if course_code not in self.courses:
+            print("Course not found.")
+            return
+
+        course = self.courses[course_code]
+        course.add_assessments(assessment)
+        print(f"{assessment} added to the course {course_code}")
 
     def record_grade(self, student_id, course_code, assessment_title, score):
         pass
@@ -65,7 +70,18 @@ class Gradebook:
             print("Student not found.")
 
     def delete_student(self, student_id):
-        pass
+        if student_id not in self.students:
+            print("Student not found.")
+            return
+        del self.students[student_id]
+        print("Student deleted.")
+        if student_id in self.grades:
+            del self.grades[student_id]
+            print("Yes student deleted.")
+        for course in self.courses.values():
+            if student_id in course.students:
+                course.students.remove(student_id)
+                print(f"{student_id} student deleted successfully.")
 
     def get_result(self, average):
         if average >= self.__passing_grade:

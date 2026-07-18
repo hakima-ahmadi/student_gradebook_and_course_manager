@@ -54,13 +54,13 @@ gradebook = Gradebook(
 )
 gradebook.add_student(Student("S004", "Elham", "elham@gmail.com", []))
 gradebook.add_course(Course("PY101", "Python Programming", [], []))
-gradebook.enroll_student("S001", "CSS101")
+gradebook.enroll_student("S004", "PY101")
+gradebook.add_assessment("PY101", "Project 2")
 gradebook.search_student("Elham")
+gradebook.delete_student("S004")
 gradebook.get_result(55)
 
-print(f"Students Dictionary:{gradebook.students}")
-print(f"Courses Dictionary: {gradebook.courses}")
-print(f"Grades Dictionary: {gradebook.grades} ")
+
 
 
 
