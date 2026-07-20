@@ -9,6 +9,8 @@ from gradebook import Gradebook
 student = Student("001", "Zahra Ahmadi", "zahra@example.com", ["PY101", "MATH101"])
 student.enroll_courses("HTML101")
 student.display_info()
+result = student.set_email("example@gmail..com")
+print(result)
 
 course = Course("PY101", "Python Programming", [
     "S001", "S002"], ["QuizObject", "ExamObject", "ProjectObject"])

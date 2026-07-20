@@ -1,3 +1,6 @@
+import re
+
+
 class Student:
 
     def __init__(self, student_id, student_name, email, courses):
@@ -22,8 +25,14 @@ class Student:
     def name(self, value):
         self.__student_name = value
 
-    def set_email(self, email):
-        pass
+    def set_email(self, value):
+        pattern = r'^(?!.*\.\.)[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)+$'
+        if re.fullmatch(pattern, value):
+            self.email = value
+            return True
+        else:
+            print("Invalid email format")
+            return False
 
     def enroll_courses(self, course_code):
         self.courses.append(course_code)
