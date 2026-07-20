@@ -1,7 +1,7 @@
 class Gradebook:
 
     def __init__(self, students, courses, grades, passing_grade):
-        self.assessments = None
+        self.assessments = None  # list
         self.students = students  # dictionary
         self.courses = courses  # dictionary
         self.grades = grades  # dictionary
@@ -108,10 +108,8 @@ class Gradebook:
             print("Student not found.")
             return
         del self.students[student_id]
-        print("Student deleted.")
         if student_id in self.grades:
             del self.grades[student_id]
-            print("Yes student deleted.")
         for course in self.courses.values():
             if student_id in course.students:
                 course.students.remove(student_id)
@@ -143,4 +141,4 @@ class Gradebook:
     def dashboard(self):
         print(f"Total student: {len(self.students)}")
         print(f"Total courses: {len(self.courses)}")
-        print(f"Total assessments: {len(self.assessments)}")
+
