@@ -63,9 +63,22 @@ class Gradebook:
         if assessment is None:
             print("Assessment not found")
             return
+
+        if student_id not in self.grades:
+            self.grades[student_id] = {}
+        if course_code not in self.grades[student_id]:
+            self.grades[student_id][course_code] = {}
+        self.grades[student_id][course_code][assessment_title] = score
+
         print(f"Student {student_id} gets {score} in {assessment_title} for course {course_code}.")
 
     def calculate_average(self, student_id, course_code):
+        if student_id not in self.grades:
+            print("No grade found")
+            return
+        if course_code not in self.grades[student_id]:
+            print("No grades found for this course")
+            return
         scores = self.grades[student_id][course_code].values()
         return sum(scores) / len(scores)
 
@@ -104,6 +117,8 @@ class Gradebook:
                 print(f"{student_id} student deleted successfully.")
 
     def get_result(self, average):
+        if average is None:
+            return "No grade found"
         if average >= self.__passing_grade:
             return "Student passed!"
         else:

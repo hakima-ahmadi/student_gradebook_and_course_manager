@@ -1,9 +1,5 @@
 from student import Student
 from course import Course
-from assessment import Assessment
-from quiz import Quiz
-from exam import Exam
-from project import Project
 from gradebook import Gradebook
 
 students = {}
@@ -81,4 +77,15 @@ while True:
         average = gradebook.calculate_average(student_id, course_code)
         print("Average:", average)
         print(gradebook.get_result(average))
+
+    elif choice == "10":
+        student_id = input("Student ID: ")
+        gradebook.show_report(student_id)
+
+    elif choice == "0":
+        print("Program closed.")
+        break
+
+    else:
+        print("Invalid choice!")
 
