@@ -67,10 +67,19 @@ class Gradebook:
 
     def calculate_average(self, student_id, course_code):
         scores = self.grades[student_id][course_code].values()
-        print(sum(scores) / len(scores))
+        return sum(scores) / len(scores)
 
     def show_report(self, student_id):
-        pass
+        if student_id not in self.students:
+            print("Student not found.")
+            return
+        student = self.students[student_id]
+        for course_code in self.grades[student_id]:
+            average = self.calculate_average(student_id, course_code)
+            result = self.get_result(average)
+            course = self.courses[course_code]
+            print(f"{student.name}'s report shows that his {course.course_name} "
+                  f"average is {average} and his result is {result}.")
 
     def search_student(self, keyword):
         for student in self.students.values():
@@ -96,6 +105,6 @@ class Gradebook:
 
     def get_result(self, average):
         if average >= self.__passing_grade:
-            print("Student passed!")
+            return "Student passed!"
         else:
-            print("Student failed!")
+            return "Student failed!"
