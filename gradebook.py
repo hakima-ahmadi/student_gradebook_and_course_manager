@@ -1,6 +1,7 @@
 class Gradebook:
 
     def __init__(self, students, courses, grades, passing_grade):
+        self.assessments = None
         self.students = students  # dictionary
         self.courses = courses  # dictionary
         self.grades = grades  # dictionary
@@ -123,3 +124,23 @@ class Gradebook:
             return "Student passed!"
         else:
             return "Student failed!"
+
+    def get_letter_grades(self, average):
+        if average >= 90:
+            return "A"
+        elif average >= 80:
+            return "B"
+        elif average >= 70:
+            return "C"
+        elif average >= 60:
+            return "D"
+        else:
+            return "F"
+
+    def teacher_comment(self, comment):
+        print(f"TEacher comment: {comment}")
+
+    def dashboard(self):
+        print(f"Total student: {len(self.students)}")
+        print(f"Total courses: {len(self.courses)}")
+        print(f"Total assessments: {len(self.assessments)}")

@@ -20,6 +20,8 @@ while True:
     print("8. Record grade")
     print("9. Calculate average and result")
     print("10. View student report")
+    print("11. Teacher comment")
+    print("12. Show dashboard")
     print("0. Exit")
 
     choice = input("Enter your choice: ")
@@ -75,17 +77,24 @@ while True:
         course_code = input("Course Code: ")
 
         average = gradebook.calculate_average(student_id, course_code)
-        print("Average:", average)
+        print(f"Average: {average} ")
+        letter_grade = gradebook.get_letter_grades(average)
+        print(f"Letter Grade: {letter_grade}")
         print(gradebook.get_result(average))
 
     elif choice == "10":
         student_id = input("Student ID: ")
         gradebook.show_report(student_id)
 
+    elif choice == "11":
+        comment = input("Please enter comment!")
+        gradebook.teacher_comment(comment)
+
+    elif choice == "12":
+        gradebook.dashboard()
+
     elif choice == "0":
         print("Program closed.")
         break
-
     else:
         print("Invalid choice!")
-
