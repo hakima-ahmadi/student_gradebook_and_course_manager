@@ -138,7 +138,7 @@ class Gradebook:
             return "F"
 
     def teacher_comment(self, comment):
-        print(f"TEacher comment: {comment}")
+        print(f"Teacher comment: {comment}")
 
     def dashboard(self):
         print(f"Total student: {len(self.students)}")
