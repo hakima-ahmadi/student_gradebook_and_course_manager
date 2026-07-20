@@ -6,6 +6,18 @@ from exam import Exam
 from project import Project
 from gradebook import Gradebook
 
+print("==========Student Gradebook Manager==========")
+print("1. Add student.")
+print("2. View students.")
+print("3. Add course.")
+print("4. Enroll student in course.")
+print("5. Add assignment.")
+print("6. Record grade")
+print("7. View student report")
+print("0. Exit")
+
+
+
 student = Student("001", "Zahra Ahmadi", "zahra@example.com", ["PY101", "MATH101"])
 student.enroll_courses("HTML101")
 student.display_info()
