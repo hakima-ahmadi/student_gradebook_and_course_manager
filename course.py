@@ -36,4 +36,4 @@ class Course:
     def display_info(self):
         print(f"Course code: {self.__course_code}")
         print(f"Course name: {self.__course_name}")
-        print(f"Enrolled students: {self.students}")  # must print the number of students
+        print(f"Enrolled students: {len(self.students)}")
